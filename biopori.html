@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kegiatan Biopori</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        main {
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gaya untuk setiap kegiatan */
+        .activity {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Gaya Slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .slider img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            display: none; /* Awalnya semua gambar disembunyikan */
+        }
+        .slider img.active {
+            display: block; /* Hanya gambar aktif yang ditampilkan */
+        }
+
+        /* Tombol Navigasi */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Menyesuaikan gambar monitoring agar sejajar */
+        .monitoring-img {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+            margin: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            position: relative;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Kegiatan Biopori
+    </header>
+    <main>
+        <div class="container">
+            <h2>Kegiatan Biopori</h2>
+            <p>Berikut adalah kegiatan yang dilakukan dalam program biopori.</p>
+            
+            <!-- Kegiatan 1: Pemasangan Biopori -->
+            <div class="activity">
+                <h3>Pemasangan Biopori</h3>
+                <p>Pemasangan biopori dilakukan dengan menggunakan bor manual untuk meletakkan pipa biopori yang telah dilubangi.</p>
+                <div class="slider-container">
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <div class="slider" id="slider">
+                        <img src="img/pemasanganbiopori.jpg" alt="Pemasangan 1" class="active">
+                        <img src="img/pemasanganbiopori2.jpg" alt="Pemasangan 2">
+                        <img src="img/pemasanganbiopori3.jpg" alt="Pemasangan 3">
+                    </div>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+
+            <!-- Kegiatan 2: Monitoring Biopori -->
+            <div class="activity">
+                <h3>Monitoring Biopori</h3>
+                <p>Monitoring dilakukan untuk memastikan bahwa pipa biopori berfungsi dengan baik dan tidak tersumbat oleh kotoran.</p>
+                <img src="img/monitoringbiopori.jpg" alt="Monitoring Biopori" class="monitoring-img">
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Kegiatan Biopori - Semua Hak Dilindungi | Kontak: 087858811655 (Faisal)
+    </footer>
+
+    <script>
+        let index = 0;
+        const images = document.querySelectorAll("#slider img");
+        const totalImages = images.length;
+
+        function showSlide(n) {
+            images.forEach((img, i) => {
+                img.classList.remove("active");
+                if (i === n) {
+                    img.classList.add("active");
+                }
+            });
+        }
+
+        function nextSlide() {
+            index = (index + 1) % totalImages; // Pindah ke gambar berikutnya
+            showSlide(index);
+        }
+
+        function prevSlide() {
+            index = (index - 1 + totalImages) % totalImages; // Kembali ke gambar sebelumnya
+            showSlide(index);
+        }
+
+        // Geser otomatis setiap 3 detik
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>

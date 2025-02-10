@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Sampah dan Biopori Padukuhan Gemawang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        main {
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* SLIDER STYLE */
+        .slider {
+            position: relative;
+            width: 400px; /* Sesuaikan dengan ukuran gambar */
+            height: 300px;
+            margin: auto;
+            overflow: hidden; /* Menyembunyikan bagian gambar yang tidak aktif */
+            border-radius: 8px;
+        }
+        .slides {
+            display: flex;
+            width: 500%; /* 3 gambar, masing-masing 100% */
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 400px; /* Ukuran gambar seragam */
+            height: 300px;
+            object-fit: contain;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Bank Sampah dan Biopori Padukuhan Gemawang
+    </header>
+    <nav>
+        <a href="banksampah.html">Bank sampah</a>
+        <a href="maps.html">Lokasi</a>
+        <a href="biopori.html">Biopori</a>
+    </nav>
+    <main>
+        <div class="container">
+            <h2>Selamat Datang di Bank Sampah</h2>
+            <p>Bank Sampah adalah inisiatif untuk mengelola sampah dengan lebih baik melalui sistem tabungan sampah.</p>
+            <p>Dengan bergabung, Anda dapat menukar sampah dengan nilai ekonomis dan membantu menjaga lingkungan.</p>
+            
+            <!-- SLIDER -->
+            <div class="slider">
+                <div class="slides">
+                    <img src="img/ayogunakan.png" alt="Poster 1">
+                    <img src="img/reduce reuse recycle.png" alt="Poster 2">
+                    <img src="img/tukar.png" alt="Poster 3">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Bank Sampah - Semua Hak Dilindungi | Kontak: 087858811655 (Faisal)
+    </footer>
+
+    <script>
+        let index = 0;
+        function slideShow() {
+            const slides = document.querySelector('.slides');
+            index++;
+            if (index > 2) index = 0; 
+            slides.style.transform = `translateX(${-index * 400}px)`; // Geser sesuai lebar gambar
+        }
+        setInterval(slideShow, 3000);
+    </script>
+</body>
+</html>
